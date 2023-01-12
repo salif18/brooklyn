@@ -1,0 +1,119 @@
+.detail{
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    padding: 50px;
+    background: radial-gradient(rgb(255, 254, 254),rgb(255, 255, 255));
+
+}
+
+.card-product{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    // border: 1px solid rgba(85, 85, 85, 0.164);
+    padding: 24px;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    // box-shadow: 5px 5px 5px 5px #555;
+   
+}
+.detail-img{
+    // border:1px solid rgba(0, 0, 0, 0.151);
+    width: 500px;
+    margin: 5px;
+    
+    
+}
+.detail-img .image-det{
+    width: 455px;
+    height: 630px;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        
+        transform:scale(1.1)
+    }
+}
+
+.card-body-product{
+    display: inline;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid rgba(85, 85, 85, 0.164);
+    width: 100%;
+    margin: 5px;
+}
+.card-name-product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Roboto'sans-serif;
+    margin: 10px;
+    padding: 10px;
+}
+.description{
+    font-family: 'Roboto';
+    font-weight: bold;
+    margin: 10px;
+}
+.card-desc-product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    margin:10px;
+    padding: 10px;
+    font-family: sans-serif;
+    color:#555;
+    background: radial-gradient(rgb(243, 243, 243),rgb(245, 245, 245));
+    border-radius: 10px;
+}
+.card-price-product{
+    margin: 10px;
+    font-family: sans-serif;
+}
+.select{
+    margin:20px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.qty{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+
+.input-num{
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-dark-prod{
+    background: radial-gradient(rgb(206, 137, 10) , rgb(41, 40, 40)); 
+    height: 55px;
+    width: 200px;
+    margin-left:20px ;
+    color:#f5f5f5;
+    font-size: 30px;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        transform: translateX(20px);
+        color:#dfdfdf
+    }
+    
+}

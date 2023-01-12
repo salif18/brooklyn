@@ -1,0 +1,33 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(rgb(77, 71, 71), rgba(0, 0, 0, 0.8));
+    width: 100%;
+    height: 100px;
+}
+.links{
+    position: absolute;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.lien{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-evenly;
+    margin: 20px;
+    text-decoration: none;
+    color:#f5f5f59c;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: 700;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        color:#f5f5f5;
+        transform: scale(1.2);
+    }
+}
