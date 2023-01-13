@@ -6,12 +6,12 @@ import Navbar from "../components/Navbar";
 import Search from "../components/Search";
 import data from "../context/data.json";
 
-const Product = () => {
+const Product = ({panier}) => {
   const [product] = useState(data);
   return (
     <>
       <Header />
-      <Navbar />
+      <Navbar panier={panier} />
       <Search />
       <h1 className="titre">Products</h1>
       <div className="product">

@@ -28,17 +28,21 @@ function App() {
     localStorage.setItem('panier',JSON.stringify(panier))
   },[panier])
 
-  console.log(panier)
+  //btn suppresion
+  const deleProduct =(id)=>{
+    setPanier(panier.filter((pro)=>pro.id !==id))
+  }
+  
   return (
     <div className="app">
     
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/product' element={<Product />} />
-        <Route path='/product/:id' element={<ProductDetail panier={panier} setPanier={setPanier}/>}/>
+        <Route path='/' element={<Home panier={panier}/>} />
+        <Route path='/product' element={<Product panier={panier}/>} />
+        <Route path='/product/:id' element={<ProductDetail panier={panier} setPanier={setPanier} />}/>
         <Route path='/about' element={<Apropos />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/panier' element={<Panier />} />
+        <Route path='/panier' element={<Panier panier={panier} setPanier={setPanier} deleProduct={deleProduct}/>} />
         <Route path='/count' element={<Count />} />
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>} />

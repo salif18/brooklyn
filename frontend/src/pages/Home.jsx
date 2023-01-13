@@ -7,11 +7,11 @@ import Footer from '../components/Footer';
 import { NavLink } from 'react-router-dom';
 
 
-const Home = () => {
+const Home = ({panier}) => {
     return (
         <>
             <Header />
-            <Navbar /> 
+            <Navbar panier={panier}/> 
             <h1 className='home-msg'>Welcom to Space Shopping</h1>
             <div className='home'>
                

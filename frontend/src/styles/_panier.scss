@@ -1,0 +1,131 @@
+.panier{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+}
+
+.card-panier{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 200px;
+    margin: 10px;
+    border-bottom: 2px solid #000;
+}
+
+.card-image-panier{
+    display: flex;
+    flex-direction: row;
+}
+
+.imagePanier{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+.card-body-panier{
+    display: flex;
+    flex-direction:  row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+
+}
+
+.card-name-panier{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:50px;
+    
+}
+
+.btn-card-remove{
+    background: radial-gradient(rgb(243, 0, 0),rgb(201, 11, 11));
+    color:#fff;
+    font-size: 20px;
+    margin-bottom: -240px;
+    margin-left: 100px;
+    font-family: sans-serif;
+}
+.btn-card-remove .fa-trash{
+    margin:10px;
+    font-size: 18px;
+}
+.card-price-panier{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:50px;
+    
+}
+.card-qty{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin:50px;
+    
+}
+.card-body-panier h1{
+    border-bottom: 1px solid #000;
+    
+}
+
+.btn-incrementation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-plus{
+    background: rgb(40, 167, 240);
+    margin:10px;
+    color: #e8e8e8;
+    font-size: 18px;
+    
+    
+    &:hover{
+        background: rgb(6, 147, 228)
+    }
+}
+
+.btn-minus{
+    background: rgb(16, 231, 70);
+    margin: 10px;
+    color:#e8e8e8;
+    font-size: 18px;
+    &:hover{
+        background: rgb(16, 231, 70);
+    }
+}
+.btn-commande{
+    background: radial-gradient( rgb(170, 115, 37),rgb(136, 91, 7) ); 
+    color:#fff;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+.commande{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-commande .fa-solid{
+    margin: 10px;
+    font-weight: 700;
+    font-size: 18px;
+   
+}
+.paniervide h2{
+    font-family: 'Roboto'sans-serif;
+    font-size: 40px;
+}

@@ -9,16 +9,16 @@ const ProductDetail = ({panier,setPanier}) => {
     const {id} =useParams()
     const proDetail = data.filter(x => x.id === id)
     const pro = proDetail[0]
-    
-    const handlerAdd = (item)=>{
-      setPanier([...panier,{...item , qty:1}])
+   
+    const handlerAdd = (pro)=>{
+      setPanier([...panier,{...pro ,qty:1}])
     }
 
 
     return (
     <>
     <Header/>
-    <Navbar/>
+    <Navbar panier={panier}/>
     <div className="detail">
       <div className="card-product">
         <div className="detail-img">
@@ -34,9 +34,9 @@ const ProductDetail = ({panier,setPanier}) => {
             <option value="xm">XM</option>
           </select>
           <div className="qty">
-        
-            <input className="input-num" type="number" placeholder="Quantity :" />
-            <button className="btn btn-dark-prod" onClick={()=>handlerAdd(pro.id)}><i className="fa-solid fa-cart-plus"></i></button>
+            <label htmlFor="color"><h2>Color</h2></label>
+            <input className="input-num" type="color" placeholder="Couleur :" />
+            <button className="btn btn-dark-prod" onClick={()=>handlerAdd(pro)}><i className="fa-solid fa-cart-plus"></i></button>
           </div>
           <h2 className="description">Description</h2>
           <p className="card-desc-product">
