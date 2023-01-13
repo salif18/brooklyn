@@ -26,6 +26,10 @@
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        transform: scale(1.03);
+    }
 }
 .card-body-panier{
     display: flex;
@@ -36,12 +40,12 @@
 
 }
 
-.card-name-panier{
+.card-name-panier,.card-color,.card-taille{
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:50px;
+    margin:20px;
     
 }
 
@@ -50,11 +54,14 @@
     color:#fff;
     font-size: 20px;
     margin-bottom: -240px;
-    margin-left: 100px;
+    margin-left: 10px;
     font-family: sans-serif;
+    &:hover{
+        color:#cdcdcd
+    }
 }
 .btn-card-remove .fa-trash{
-    margin:10px;
+    margin:5px;
     font-size: 18px;
 }
 .card-price-panier{
@@ -62,7 +69,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:50px;
+    margin:10px;
     
 }
 .card-qty{
@@ -70,7 +77,7 @@
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    margin:50px;
+    margin:20px;
     
 }
 .card-body-panier h1{
@@ -88,8 +95,8 @@
     background: rgb(40, 167, 240);
     margin:10px;
     color: #e8e8e8;
-    font-size: 18px;
-    
+    font-size: 20px;
+    font-weight: 700;
     
     &:hover{
         background: rgb(6, 147, 228)
@@ -100,7 +107,8 @@
     background: rgb(16, 231, 70);
     margin: 10px;
     color:#e8e8e8;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 700;
     &:hover{
         background: rgb(16, 231, 70);
     }

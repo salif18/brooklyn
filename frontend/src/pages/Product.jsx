@@ -7,14 +7,18 @@ import Search from "../components/Search";
 import data from "../context/data.json";
 
 const Product = ({panier}) => {
+  //Etat data product
   const [product] = useState(data);
+  
   return (
     <>
       <Header />
       <Navbar panier={panier} />
       <Search />
       <h1 className="titre">Products</h1>
+
       <div className="product">
+
         {product.map((item) => (
           <NavLink to={`/product/${item.id}`}>
             <div className="card" key={item.id}>
@@ -34,6 +38,7 @@ const Product = ({panier}) => {
             </div>
           </NavLink>
         ))}
+
       </div>
     </>
   );

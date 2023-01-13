@@ -13,7 +13,7 @@ const Navbar = ({panier}) => {
                 <NavLink className='lien' to='/contact'><a href><i className="fa-solid fa-phone"></i></a></NavLink>
                 <NavLink className='lien' to='/panier'><a href><i className="fa-solid fa-cart-shopping"></i><span className='nombrePanier'>{panier.length}</span></a></NavLink>
                 <NavLink className='lien' to='/count'><a href><i className="fa-solid fa-user"></i></a></NavLink>
-                <NavLink className='lien' to='/login'>login</NavLink>
+                <NavLink className='lien' to='/login'><i className="fa-solid fa-right-to-bracket"></i>Login</NavLink>
             </div>
         </div>
     );
