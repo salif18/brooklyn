@@ -10,9 +10,9 @@ import { NavLink } from 'react-router-dom';
 const Home = ({panier}) => {
     return (
         <>
-            <Header />
+            <Header panier={panier} />
             <Navbar panier={panier}/> 
-            <h1 className='home-msg'>Welcom to Space Shopping</h1>
+            <div className='home-msg'><h1>Bienvenue dans univers des</h1><h2>Qualites !!</h2></div>
             <div className='home'>
                
                  <div className="infos">

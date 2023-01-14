@@ -6,9 +6,16 @@
     padding: 24px;
 
 }
+.object{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom:1px solid rgba(0, 0, 0, 0.199) ;
+}
+
 .titre{
     margin:20px;
-    border-bottom:1px solid rgba(0, 0, 0, 0.199) ;
+   
     padding:20px;
 }
 
@@ -18,7 +25,7 @@
     justify-content: center;
     align-items: center;
     width: 220px;
-    height: 450px;
+    height: 460px;
     border-radius: 5px;
    
     border:1px solid rgba(0, 0, 0, 0.089);
@@ -52,12 +59,14 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
     color:#000
 }
 
 .card-price{
     font-family: 'Roboto';
-    font-weight: 700;
+    font-size: 20px;
     color:#000
 }
 
@@ -89,7 +98,7 @@
     color:#ffff;
     font-family: 'Roboto'sans-serif;
     font-size: 16px;
-    margin: 20px;
+    margin: 5px;
     &:hover{
         color:antiquewhite
     }

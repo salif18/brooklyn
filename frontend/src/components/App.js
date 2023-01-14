@@ -2,7 +2,7 @@ import Home from '../pages/Home';
 import Product from "../pages/Product";
 import Apropos from '../pages/Apropos';
 import Contact from "../pages/Contact";
-import Count from '../pages/Count';
+import Compte from '../pages/Compte';
 import Panier from '../pages/Panier';
 import { Route, Routes } from 'react-router-dom';
 import ProductDetail from './ProductDetail';
@@ -45,7 +45,7 @@ function App() {
         <Route path='/about' element={<Apropos />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/panier' element={<Panier panier={panier} setPanier={setPanier} deleProduct={deleProduct}/>} />
-        <Route path='/count' element={<Count />} />
+        <Route path='/compte' element={<Compte />} />
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>} />
       </Routes>

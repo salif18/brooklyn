@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     height: 200px;
     margin: 10px;
@@ -35,17 +35,22 @@
     display: flex;
     flex-direction:  row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 120px;
 
 }
 
-.card-name-panier,.card-color,.card-taille{
+.card-body-panier h2{
+    font-size: 18px;
+}
+.card-name-panier,.card-price-panier,.card-color,.card-taille,.card-pointure{
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin:20px;
+    width: 100px;
+    height: 20px;
     
 }
 
@@ -54,34 +59,41 @@
     color:#fff;
     font-size: 20px;
     margin-bottom: -240px;
-    margin-left: 10px;
+    margin-left: 100px;
+    width: 130px;
     font-family: sans-serif;
     &:hover{
         color:#cdcdcd
     }
 }
+
 .btn-card-remove .fa-trash{
     margin:5px;
     font-size: 18px;
 }
-.card-price-panier{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin:10px;
-    
-}
+
+// .card-price-panier{
+//     display:flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     margin:10px;
+//     width: 100px;
+// }
+
 .card-qty{
     display:flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    margin:20px;
-    
+    margin-left: 50px;
+}
+.card-qty h1{
+    margin-top:15px;
 }
 .card-body-panier h1{
     border-bottom: 1px solid #000;
+    font-size: 20px;
     
 }
 
@@ -89,11 +101,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+
+}
+
+.btn-incrementation h2{
+    margin-left:10px;
+    margin-right: 10px;
 }
 
 .btn-plus{
     background: rgb(40, 167, 240);
-    margin:10px;
+    
     color: #e8e8e8;
     font-size: 20px;
     font-weight: 700;
@@ -105,7 +124,6 @@
 
 .btn-minus{
     background: rgb(16, 231, 70);
-    margin: 10px;
     color:#e8e8e8;
     font-size: 20px;
     font-weight: 700;

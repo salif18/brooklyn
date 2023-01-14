@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 const ProductDetail = ({panier,setPanier}) => {
     // const image1 =data[2].image
     const pointures = ['S','M','L','XL','XXL','XXXL']
-    
+    const chauPointures =['26','28','30','32','34','36','38','39','40','41','42','44','45']
     //recuperer id dans url
     const {id} =useParams()
     const proDetail = data.filter(x => x.id === id)
@@ -17,7 +17,7 @@ const ProductDetail = ({panier,setPanier}) => {
     const [click,setClick]=useState(false)
 
     //donnees de selection 
-    const [detail,setDetail] =useState({taille:'',size:''})
+    const [detail,setDetail] =useState({taille:'',size:'',pointure:''})
     const handleChange=(e)=>{
       const {name,value}=e.target 
       setDetail({...detail,[name]:value})
@@ -25,15 +25,16 @@ const ProductDetail = ({panier,setPanier}) => {
 
     //Fonction ajout au panier
     const handlerAdd = (pro)=>{
-      setPanier([...panier,{...pro ,...detail,qty:1}])
+      setPanier([...panier,{...pro,...detail,qty:1}])
       setClick(true)
     }
     //redirect vers la page produit en cas d'ajout au panier
     const navigate = useNavigate()
-
+   
+    
     return (
     <>
-    <Header/>
+    <Header panier={panier}/>
     
     {click ? navigate('/product'):''}
 
@@ -47,11 +48,18 @@ const ProductDetail = ({panier,setPanier}) => {
         </div>
         <div className="card-body-product">
           <h1 className="card-name-product">{pro.nom}</h1>
-          <h2 className="card-price-product">{pro.price} Fcfa</h2>
-          <select className="select" value={detail.size} name='size' onChange={(e)=>handleChange(e)}>
+          <h2 className="card-price-product">{pro.price} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
+        
+         {pro.category==='vetement'?(<select className="select" value={detail.size} name='size' onChange={(e)=>handleChange(e)}>
             <option value>Select-Size</option>
-            {pointures.map((pointure)=>(<option value={pointure}>{pointure}</option>))}
-          </select>
+            {pointures.map((point,ide)=>(<option value={point} key={ide}>{point}</option>))}
+          </select>)
+           :
+          (<select className="select2" name='pointure' value={detail.pointure} onChange={(e)=>handleChange(e)}>
+            <option value=''>Pointures</option> 
+          {chauPointures.map((c,ide2)=>(<option value={c} key={ide2}>{c}</option>))}
+          </select>)}
+
           <div className="qty">
             <label htmlFor="color"><h2>Color</h2></label>
             <input className="input-num" name='color' value={detail.color} onChange={(e)=>handleChange(e)} type="color" placeholder="Couleur :" />

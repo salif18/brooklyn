@@ -26,12 +26,12 @@
     
 }
 .detail-img .image-det{
-    width: 455px;
-    height: 630px;
+    width: 445px;
+    height: 550px;
     transition: all 0.5s ease-in-out;
     &:hover{
         
-        transform:scale(1.1)
+        transform:scale(1.03)
     }
 }
 
@@ -77,9 +77,11 @@
     margin: 10px;
     font-family: sans-serif;
 }
-.select{
+.select,.select2{
     margin:20px;
     height: 50px;
+    border:3px solid #555;
+    font-weight: 700;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -106,7 +108,7 @@
 }
 
 .btn-dark-prod{
-    background: radial-gradient(rgb(206, 137, 10) , rgb(41, 40, 40)); 
+    background: rgb(4, 121, 156);
     height: 55px;
     width: 200px;
     margin-left:20px ;
@@ -114,8 +116,9 @@
     font-size: 30px;
     transition: all 0.5s ease-in-out;
     &:hover{
-        transform: translateX(20px);
-        color:#dfdfdf
+        transform: scale(1.02);
+        color:#000;
+        background: rgb(230, 151, 5);
     }
     
 }
