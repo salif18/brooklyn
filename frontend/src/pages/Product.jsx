@@ -8,7 +8,32 @@ import Search from "../components/Search";
 import data from "../context/data.json";
 import {ClipLoader} from 'react-spinners'
 import RatingStart from "../components/RatingStart";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css"
+import MyCarousel from "../components/MyCarousel";
+
 const Product = ({panier}) => {
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
   //Etat data product
   const [product] = useState(data);
 
@@ -26,11 +51,11 @@ const Product = ({panier}) => {
       <div className="object">
       <h1 className="titre">Products</h1>
       <Search/>
-      
-        <span className="ca"><Category/></span>
+      <span className="ca"><Category/></span>
        </div>
+       <MyCarousel/>
       <div className="product">
-
+        
         {product.map((item) => (
           
             <div className="card" key={item.id}>
@@ -56,10 +81,12 @@ const Product = ({panier}) => {
             </div>
           
         ))}
-
+      
       </div>
     </>
   );
 };
+
+
 
 export default Product;

@@ -9,12 +9,12 @@
 
 
 .home-msg{
-    
+   
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    margin: 50px;
+    margin-top: 50px;
     transition: all 0.5s ease-in-out;
 }
 .home-msg:hover{
@@ -23,6 +23,7 @@
 
 .infos{
     transition: all 0.5s ease-in-out;
+
 }
 .infos:hover{
     transform: translateY(50px);
@@ -59,12 +60,16 @@ margin: 10px;
 }
 
 .btn-dark:hover{
-    transform: translateX(40px);
+    transform: translateX(5px);
 }
 .section-cate{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px;
+    margin: 10px;
+}
+
+.titreechan{
+    margin: 40px;
 }

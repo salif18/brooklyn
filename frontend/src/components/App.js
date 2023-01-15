@@ -9,6 +9,7 @@ import ProductDetail from './ProductDetail';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import { useEffect, useState } from 'react';
+import PostProduct from './PostProduct';
 
 //recuperation de panier dans localstorage
 const getLocalStorage = ()=>{
@@ -48,6 +49,7 @@ function App() {
         <Route path='/compte' element={<Compte />} />
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>} />
+        <Route path='/postproduct' element={<PostProduct/>}/>
       </Routes>
     </div>
   );
