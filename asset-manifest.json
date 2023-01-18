@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/brooklyn/static/css/main.8ec2acb6.css",
+    "main.js": "/brooklyn/static/js/main.b1aaabf8.js",
+    "static/media/chemise1.jpg": "/brooklyn/static/media/chemise1.9b3a59b7679347c7966a.jpg",
+    "static/media/fashion-logo-design.jpg": "/brooklyn/static/media/fashion-logo-design.c2539da2a8654cd5b43d.jpg",
+    "static/media/chemise4.jpg": "/brooklyn/static/media/chemise4.3ed58bd7ff0beab87c20.jpg",
+    "static/media/chem2.jpg": "/brooklyn/static/media/chem2.66d7079a4ee832f591bc.jpg",
+    "static/media/bg7.webp": "/brooklyn/static/media/bg7.97b15f03d99388df0646.webp",
+    "static/media/pantf2.jpg": "/brooklyn/static/media/pantf2.b69949d184cd0d115822.jpg",
+    "static/media/dentel.jpeg": "/brooklyn/static/media/dentel.8930c27b6d5759069cca.jpeg",
+    "static/media/pantf1.jpg": "/brooklyn/static/media/pantf1.d9127a4d0622c00413c4.jpg",
+    "static/media/chemise5.jpeg": "/brooklyn/static/media/chemise5.35103138381e12ca2880.jpeg",
+    "static/media/montre.jpg": "/brooklyn/static/media/montre.b540b782cd5e28bf313c.jpg",
+    "static/media/chem3.jpg": "/brooklyn/static/media/chem3.29cae36ca7fcbff7e84b.jpg",
+    "static/media/pantf4.jpg": "/brooklyn/static/media/pantf4.c53e5a32bd441895653d.jpg",
+    "static/media/chem4.jpg": "/brooklyn/static/media/chem4.28baab896df54d5a5cca.jpg",
+    "static/media/br.jpg": "/brooklyn/static/media/br.476fb38ee2fe53c141ab.jpg",
+    "static/media/chem1.jpg": "/brooklyn/static/media/chem1.1fcb04fa2dea4af9ef6d.jpg",
+    "static/media/vet2.jpg": "/brooklyn/static/media/vet2.e372374137fb98fd1979.jpg",
+    "static/media/bg.jpg": "/brooklyn/static/media/bg.67e5dc4c4edede1d4f0f.jpg",
+    "static/media/bg2.jpg": "/brooklyn/static/media/bg2.2abdbfc1903a0157b6ef.jpg",
+    "static/media/montre1.webp": "/brooklyn/static/media/montre1.5e2f17af926b497d71c7.webp",
+    "static/media/looo.jpg": "/brooklyn/static/media/looo.f07a87dd7dbba084a32c.jpg",
+    "static/media/img2.webp": "/brooklyn/static/media/img2.0410c6bd9e42931e427f.webp",
+    "static/media/chemise2.jpg": "/brooklyn/static/media/chemise2.271dc58fd992fe9b5f8e.jpg",
+    "static/media/revicons.eot": "/brooklyn/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/brooklyn/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/pantf3.avif": "/brooklyn/static/media/pantf3.197753fddcd166260e7b.avif",
+    "static/media/revicons.woff": "/brooklyn/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/pan2.webp": "/brooklyn/static/media/pan2.e89d41303f3a88807ede.webp",
+    "static/media/lunette.avif": "/brooklyn/static/media/lunette.06175a69bd72f1e44819.avif",
+    "index.html": "/brooklyn/index.html",
+    "main.8ec2acb6.css.map": "/brooklyn/static/css/main.8ec2acb6.css.map",
+    "main.b1aaabf8.js.map": "/brooklyn/static/js/main.b1aaabf8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ec2acb6.css",
+    "static/js/main.b1aaabf8.js"
+  ]
+}
