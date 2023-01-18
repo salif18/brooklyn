@@ -33,7 +33,7 @@ function App() {
 
   //btn suppresion props vers panier
   const deleProduct =(id)=>{
-    setPanier(panier.filter((pro)=>pro.id !==id))
+    setPanier(panier.filter((pro)=>pro._id !==id))
   }
   
   return (

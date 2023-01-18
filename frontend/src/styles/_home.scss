@@ -9,20 +9,33 @@
 
 
 .home-msg{
-   
+    font-size: 40px;
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: -50px;
     transition: all 0.5s ease-in-out;
+    height: 100vh;
+   
 }
-.home-msg:hover{
-    transform: translateX(40px);
+
+.bienvenu{
+    font-size: 45px;
+    font-weight: bold; 
+    letter-spacing: 20px;
+    background: #0000006c;
+    color: #ffffff;
+    border-radius: 10px;
+   
 }
+// .home-msg:hover{
+//     transform: translateX(40px);
+// }
 
 .infos{
     transition: all 0.5s ease-in-out;
+    margin-top: 50px;
 
 }
 .infos:hover{
@@ -31,6 +44,7 @@
 
 .image-info{
     transition: all 0.5s ease-in-out;
+    margin-top: 50px;
 }
 .image-info:hover{
      transform: scale(1.1);
@@ -51,7 +65,9 @@ margin: 10px;
     border-radius: 50px;
    
 }
-
+.btn-dark .fa-solid{
+    margin-left: 20px;
+}
 .btn-dark a{
      text-decoration: none;
       font-family: sans-serif;
@@ -72,4 +88,36 @@ margin: 10px;
 
 .titreechan{
     margin: 40px;
+}
+
+.brand-img{
+    height: 400px;
+}
+
+.brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgb(255, 255, 255),rgb(241, 241, 241));
+    height: 80vh;
+    width: 100%;
+    
+}
+
+.smart{
+    margin: 20px;
+    font-size: 50px;
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+
+.st{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    font-family: sans-serif;
+    font-size: 20px;
+    
 }

@@ -2,19 +2,19 @@ import { createContext, useState } from "react";
 
 //Les valeurs par defauts de nos etats
 const defaultValue = {
-  userId: "",
-  token: "",
-  isLogged:false,
-  login: () => {},
-  logout: () => {},
+  token:"",
+  userId:null,
+  userLoggedIn:false,
+  login:() => {},
+  logout:() => {},
 };
 
-const getUserIdLocalStorage = localStorage.getItem("userId");
-const getTokenLocalStorage = localStorage.getItem("token");
+
 
 //creation du hook context
 const AuthContext = createContext(defaultValue);
-
+const getUserIdLocalStorage = localStorage.getItem("userId");
+const getTokenLocalStorage = localStorage.getItem("token");
 
 //creation des contenus qui seront rendus partager dans d'autres composant par le biat
 //de provider
@@ -39,16 +39,16 @@ export const AuthContextProvider = (props) => {
   };
 
   //etats de connection
-  const isLoggedIn = !! token
+  const userLoggedIn = !!token
 
 
   //contenus qui seront partager 
   const contextValue = {
     userId: userId,
     token: token,
-    isLogged:isLoggedIn,
-    login: handlerLogin,
-    logout: handlerLogout,
+    isLogged:userLoggedIn,
+    login:handlerLogin,
+    logout:handlerLogout,
   };
   return (
     <AuthContext.Provider value={contextValue}>

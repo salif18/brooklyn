@@ -13,7 +13,7 @@ const Navbar = ({panier}) => {
                 <NavLink className='lien' to='/apropos'><i className="fa-solid fa-circle-info"></i></NavLink>
                 <NavLink className='lien' to='/contact'><i className="fa-solid fa-phone"></i></NavLink>              
                 <NavLink className='lien' to='/compte'><i className="fa-solid fa-user"></i></NavLink>
-               
+                <NavLink className='lien' to='/postproduct'>Vendre</NavLink>
             </div>
         </div>
     );

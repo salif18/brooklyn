@@ -5,12 +5,13 @@ import Category from "../components/Category";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
-import data from "../context/data.json";
+// import data from "../context/data.json";
 import {ClipLoader} from 'react-spinners'
 import RatingStart from "../components/RatingStart";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css"
 import MyCarousel from "../components/MyCarousel";
+import Axios from 'axios'
 
 const Product = ({panier}) => {
 
@@ -22,7 +23,7 @@ const Product = ({panier}) => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 4
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -35,8 +36,22 @@ const Product = ({panier}) => {
   };
 
   //Etat data product
-  const [product] = useState(data);
-
+  const [product,setProduct] = useState([]);
+  //get products to server mongodb
+  useEffect(()=>{
+      const getProducts = async()=>{
+         try{
+           const res = await Axios.get('http://localhost:3002/products')
+           if(res){
+            const data = await res.data
+             setProduct(data)
+           }
+         }catch(e){
+          console.log(e)
+         }
+      }
+      getProducts()
+  },[])
   //etat de spinner
   const [loading,setLoading]=useState(false)
   useEffect(()=>{
@@ -54,22 +69,25 @@ const Product = ({panier}) => {
       <span className="ca"><Category/></span>
        </div>
        <MyCarousel/>
-      <div className="product">
+      <div className="container">
+       <h1 className="article">Nos articles</h1>
+        <Carousel responsive={responsive}  >
         
-        {product.map((item) => (
-          
-            <div className="card" key={item.id}>
+       
+        {product.filter((x)=>x.category==='chaussure').map((item) => (
+           
+            <div className="card" key={item._id}>
             {loading ? <ClipLoader className="spinner" size={'40px'}/> :
             <>
               <img className="card-img" src={item.image} alt="" />
               <div className="card-body">
                 <h1 className="card-name">{item.nom}</h1>
                 <p className="card-desc"></p>
-                <h2 className="card-price">{item.price} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
+                <h2 className="card-price">{item.prix} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
                 <RatingStart/>
                 </div>
               <div className="bt">
-                <NavLink to={`/product/${item.id}`}>
+                <NavLink to={`/product/${item._id}`}>
                   <button className="btn btn-view">
                     <i className="fa-solid fa-eye"></i>
                   </button>
@@ -81,7 +99,66 @@ const Product = ({panier}) => {
             </div>
           
         ))}
+       
+      </Carousel>
+      <Carousel responsive={responsive}>
+      {product.filter((x)=>x.category==='vetement').map((item) => (
+           
+        <div className="card" key={item._id}>
+        {loading ? <ClipLoader className="spinner" size={'40px'}/> :
+        <>
+          <img className="card-img" src={item.image} alt="" />
+          <div className="card-body">
+            <h1 className="card-name">{item.nom}</h1>
+            <p className="card-desc"></p>
+            <h2 className="card-price">{item.prix} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
+            <RatingStart/>
+            </div>
+          <div className="bt">
+            <NavLink to={`/product/${item._id}`}>
+              <button className="btn btn-view">
+                <i className="fa-solid fa-eye"></i>
+              </button>
+            </NavLink>
+           
+          </div>
+          </>
+        }
+        </div>
       
+    ))}
+      </Carousel>
+
+      <Carousel responsive={responsive}>
+      
+      {product.filter((a)=>a.category ==='accessoire').map((item) => (
+           
+        <div className="card" key={item._id}>
+        {loading ? <ClipLoader className="spinner" size={'40px'}/> :
+        <>
+          <img className="card-img" src={item.image} alt="" />
+          <div className="card-body">
+            <h1 className="card-name">{item.nom}</h1>
+            <p className="card-desc"></p>
+            <h2 className="card-price">{item.prix} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
+            <RatingStart/>
+            </div>
+          <div className="bt">
+            <NavLink to={`/product/${item._id}`}>
+              <button className="btn btn-view">
+                <i className="fa-solid fa-eye"></i>
+              </button>
+            </NavLink>
+           
+          </div>
+          </>
+        }
+        </div>
+      
+    ))}
+
+      </Carousel>
+
       </div>
     </>
   );

@@ -16,7 +16,7 @@ const MyCarousel = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -33,8 +33,8 @@ const MyCarousel = () => {
       <div className="container" >
        <h2 className="titre-carousel">Nouveaux arrivages!!</h2>
         <Carousel  responsive={responsive} autoPlay={true} autoPlaySpeed={5000} transitionDuration={500}  infinite={true}>
-         {dataCarousel.map((items)=>(
-            <img style={styles.imagesCarousel} src={items} alt='' />
+         {dataCarousel.map((items,i)=>(
+            <img key={i} style={styles.imagesCarousel} src={items} alt='' />
          ))}
         </Carousel>
         
@@ -46,7 +46,8 @@ const MyCarousel = () => {
 const styles={
     imagesCarousel:{
           width:400,
-          heigth:200
+          heigth:400,
+      
     }
 
 }

@@ -15,7 +15,8 @@
   // display: flex;
   // flex-wrap:nowrap ;
   // justify-content: center;
-  background: radial-gradient(rgb(255, 254, 254),rgb(255, 255, 255));
+  // background: radial-gradient(rgb(255, 254, 254),rgb(255, 255, 255));
+  background: radial-gradient(rgb(255, 255, 255),rgb(241, 241, 241));
   // background: #000;
 };
 
@@ -34,6 +35,8 @@
 @import './spinner';
 @import './rating';
 @import './compte';
-@import './mycarousel'
+@import './mycarousel';
+@import './alert';
+@import './postproduct'
 
 

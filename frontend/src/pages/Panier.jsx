@@ -22,10 +22,10 @@ const Panier = ({ panier, setPanier, deleProduct }) => {
 
       <div className="panier">
         {panier.length === 0 ? <PanierVide /> : ""}
-       {panier.map((item, id) => (
+       {panier.map((item,id) => (
 
  
-          <div className="card-panier" key={item.id}>
+          <div className="card-panier" key={item._id}>
      {loading ? <ClipLoader className="spinner" size={'40px'} /> :
       <>
             <div className="card-image-panier">  
@@ -52,7 +52,7 @@ const Panier = ({ panier, setPanier, deleProduct }) => {
               </div>
               <div className="card-price-panier">
                 <h1>Prix</h1>
-                <h2>{item.price * item.qty} Fcfa</h2>{" "}
+                <h2>{item.prix * item.qty} Fcfa</h2>{" "}
               </div>
               <div className="card-qty">
                 <h1>Quantity</h1>
@@ -84,7 +84,7 @@ const Panier = ({ panier, setPanier, deleProduct }) => {
               </div>
               <button
                 className="btn btn-card-remove"
-                onClick={() => deleProduct(item.id)}
+                onClick={() => deleProduct(item._id)}
               >
                 <i className="fa-solid fa-trash"></i>Remove
              </button>
@@ -98,7 +98,7 @@ const Panier = ({ panier, setPanier, deleProduct }) => {
           <h2>
             Total :
             {panier
-              .map((item) => item.price * item.qty)
+              .map((item) => item.prix * item.qty)
               .reduce((a, b) => a + b, 0)}{" "}
             <i className="fa-solid fa-sack-dollar"></i>Fcfa
           </h2>

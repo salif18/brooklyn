@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
+import Axios from 'axios'
+import Alert from "./Alert";
+// import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const [erreur,setErreur] = useState('')
   //etat de stock de donnee de signup
   const [dataSignup, setDataSignup] = useState({
-    prenom: "",
-    nom: "",
-    numero: "",
-    password: "",
+    prenom:"",
+    nom:"",
+    address:'',
+    numero:"",
+    password:"",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,9 +20,23 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     //envoie vers server
-    setDataSignup({ prenom: "", nom: "", numero: "", password: "" });
+    const postSignup = async()=>{
+      try{
+           const res = await Axios.post('http://localhost:3002/authentification/signup',dataSignup)
+           if(res){
+            const data = await res.data
+            setDataSignup(data)
+           }
+          
+      }catch(e){
+        setErreur(e)
+      }
+    }
+    postSignup()
+    setDataSignup({ prenom:"", nom:"",address:'', numero:"", password:"" });
   };
 
+  
   //etat spinner
   const [loading,setLoading] = useState(false)
   useEffect(()=>{
@@ -27,6 +46,17 @@ const Signup = () => {
   
   return (
     <>
+    {!erreur &&
+    <Alert>
+      <div className='entete'> 
+        <h1>{erreur}</h1>
+      </div>
+      <div className='contenu-alert'>
+        <h2>Erreur</h2>
+        <button className="btn btn-secondary" onClick={()=>setErreur(true)}>Ok</button>
+      </div>
+    </Alert>
+    }
       <div className="signup">
       {loading ? <ClipLoader className="spinner-login" size={'40px'}/> :
         <>
@@ -56,11 +86,26 @@ const Signup = () => {
               type="text"
               className="form-control"
               id="nom"
+              name="nom"
               value={dataSignup.nom}
               onChange={(e) => handleChange(e)}
               placeholder="Nom :"
             />
           </div>
+          <div>
+          <label htmlFor="address" className="label-control">
+            Address
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="address"
+            name="address"
+            value={dataSignup.address}
+            onChange={(e) => handleChange(e)}
+            placeholder="Address :"
+          />
+        </div>
           <div>
             <label htmlFor="numero" className="label-control">
               Numero
@@ -68,6 +113,7 @@ const Signup = () => {
             <input
               className="form-control"
               type="number"
+              name="numero"
               value={dataSignup.numero}
               onChange={(e) => handleChange(e)}
               id="numero"
@@ -81,6 +127,7 @@ const Signup = () => {
             <input
               type="password"
               className="form-control"
+              name="password"
               value={dataSignup.password}
               onChange={(e) => handleChange(e)}
               id="password"

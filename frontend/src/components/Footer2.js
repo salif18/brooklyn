@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { Parallax } from 'react-parallax';
+import back2 from '../assets/background/vet2.jpg'
+import back3 from '../assets/background/bg2.jpg'
 const Footer2 = () => {
     return (
-        <div className='footer2'>
+        <Parallax className='footer2' bgImage={back3} strength={100}>
             
-        </div>
+        </Parallax>
     );
 };
 
