@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Category from "../components/Category";
@@ -12,8 +12,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css"
 import MyCarousel from "../components/MyCarousel";
 import Axios from 'axios'
+import AuthContext from "../context/authContext";
 
-const Product = ({panier}) => {
+const Product = ({panier,categoryData,data,handleSubmit,handleChange,handleChange2,handleSubmit2}) => {
 
   const responsive = {
     superLargeDesktop: {
@@ -35,13 +36,19 @@ const Product = ({panier}) => {
     }
   };
 
+  const authCtx = useContext(AuthContext)
   //Etat data product
   const [product,setProduct] = useState([]);
   //get products to server mongodb
   useEffect(()=>{
       const getProducts = async()=>{
          try{
-           const res = await Axios.get('http://localhost:3002/products')
+           const res = await Axios.get('http://localhost:3002/products',{
+            headers:{
+              'Content-Type':'application/json',
+              Authorization: `Bearer ${authCtx.token}`
+            }
+           })
            if(res){
             const data = await res.data
              setProduct(data)
@@ -65,8 +72,10 @@ const Product = ({panier}) => {
       <Navbar panier={panier} />
       <div className="object">
       <h1 className="titre">Products</h1>
-      <Search/>
-      <span className="ca"><Category/></span>
+      <Search data={data} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <span className="ca"><Category  
+      handleChange2={handleChange2}
+      handleSubmit2={handleSubmit2} categoryData={categoryData}/></span>
        </div>
        <MyCarousel/>
       <div className="container">
@@ -74,7 +83,7 @@ const Product = ({panier}) => {
         <Carousel responsive={responsive}  >
         
        
-        {product.filter((x)=>x.category==='chaussure').map((item) => (
+        {product.filter((x)=>x.category.toLowerCase().includes(categoryData.category.toLowerCase())|| x.nom.toLowerCase().includes(data.search.toLowerCase())).map((item) => (
            
             <div className="card" key={item._id}>
             {loading ? <ClipLoader className="spinner" size={'40px'}/> :
@@ -99,64 +108,8 @@ const Product = ({panier}) => {
             </div>
           
         ))}
-       
-      </Carousel>
-      <Carousel responsive={responsive}>
-      {product.filter((x)=>x.category==='vetement').map((item) => (
-           
-        <div className="card" key={item._id}>
-        {loading ? <ClipLoader className="spinner" size={'40px'}/> :
-        <>
-          <img className="card-img" src={item.image} alt="" />
-          <div className="card-body">
-            <h1 className="card-name">{item.nom}</h1>
-            <p className="card-desc"></p>
-            <h2 className="card-price">{item.prix} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
-            <RatingStart/>
-            </div>
-          <div className="bt">
-            <NavLink to={`/product/${item._id}`}>
-              <button className="btn btn-view">
-                <i className="fa-solid fa-eye"></i>
-              </button>
-            </NavLink>
-           
-          </div>
-          </>
-        }
-        </div>
-      
-    ))}
-      </Carousel>
 
-      <Carousel responsive={responsive}>
-      
-      {product.filter((a)=>a.category ==='accessoire').map((item) => (
-           
-        <div className="card" key={item._id}>
-        {loading ? <ClipLoader className="spinner" size={'40px'}/> :
-        <>
-          <img className="card-img" src={item.image} alt="" />
-          <div className="card-body">
-            <h1 className="card-name">{item.nom}</h1>
-            <p className="card-desc"></p>
-            <h2 className="card-price">{item.prix} Fcfa <i className="fa-solid fa-sack-dollar"></i></h2>
-            <RatingStart/>
-            </div>
-          <div className="bt">
-            <NavLink to={`/product/${item._id}`}>
-              <button className="btn btn-view">
-                <i className="fa-solid fa-eye"></i>
-              </button>
-            </NavLink>
-           
-          </div>
-          </>
-        }
-        </div>
-      
-    ))}
-
+    
       </Carousel>
 
       </div>

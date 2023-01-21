@@ -9,9 +9,9 @@ const Panier = ({ panier, setPanier, deleProduct }) => {
     setLoading(true);
     setTimeout(() => setLoading(false), 1000);
   },[]);
-
-  const [panierToserver,setPanierToserver]=useState(panier)
-  console.log(panierToserver)
+console.log(panier)
+  // const [panierToserver,setPanierToserver]=useState(panier)
+  // console.log(panierToserver)
   //fonction envoie commande
   const handleSubmit = (e) => {
     //code envoie panier  commade dans la base de donne

@@ -35,13 +35,38 @@ function App() {
   const deleProduct =(id)=>{
     setPanier(panier.filter((pro)=>pro._id !==id))
   }
+  //etat de search props search et product
+  const [data,setData]=useState({search:''})
+    
+  const handleChange=(e)=>{
+      const {name,value}=e.target 
+      setData({...data,[name]:value})
+  }
   
+  const handleSubmit=(e)=>{
+      e.preventDefault()
+      setData({search:''})
+  }
+
+  //etat category
+  const [categoryData,setCategoryData]=useState({category:''})
+  const handleChange2=(e)=>{
+      const{name,value}=e.target 
+      setCategoryData({...categoryData,[name]:value})
+  }
+  const handleSubmit2=(e)=>{
+      e.preventDefault()
+      setCategoryData({category:''})
+  }
+
   return (
     <div className="app">
     
       <Routes>
         <Route path='/' element={<Home panier={panier}/>} />
-        <Route path='/product' element={<Product panier={panier}/>} />
+        <Route path='/product' element={<Product panier={panier} 
+        data={data} handleChange={handleChange} handleSubmit={handleSubmit} 
+         handleChange2={handleChange2} handleSubmit2={handleSubmit2} categoryData={categoryData}/>} />
         <Route path='/product/:id' element={<ProductDetail panier={panier} setPanier={setPanier} />}/>
         <Route path='/about' element={<Apropos />} />
         <Route path='/contact' element={<Contact />} />

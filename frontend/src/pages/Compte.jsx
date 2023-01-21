@@ -1,17 +1,13 @@
-import { Navigate } from "react-router-dom";
 import Navbar from '../components/Navbar'
 import img2 from '../assets/img2.webp'
-import { useContext } from "react";
-import AuthContext from "../context/authContext";
+
 const Compte = () => {
-  
-  const authCtx = useContext(AuthContext)
-  const isLogged = authCtx.isLogged
+
   
   return (
     <>
     <Navbar />
-      {!isLogged && <Navigate to="/login" replace={true} />}
+  
       <div className="compte">
       <div className="tit">
         <h1>Compte client</h1>
@@ -30,6 +26,7 @@ const Compte = () => {
         </div>
         <div className="mesachat">
           <h2>Mes achats</h2>
+          
         </div>
       </div>
       </div>

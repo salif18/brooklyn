@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Axios from 'axios'
+import AuthContext from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 const PostProduct = () => {
+  const authCtx = useContext(AuthContext)
+  const navigate=useNavigate()
   //stockage de donnees poster
-  const [postData, setPostData] = useState({userId:'',image:'',nom:'',
+  const [postData, setPostData] = useState({userId:authCtx.token,image:'',nom:'',
   category:'',description:'',prix:''});
 
   const handleChange =(e)=>{
@@ -19,12 +23,13 @@ const PostProduct = () => {
             {
               headers:{
                 'Content-Type':'application/json',
-                // Authorization: ` Bearer ${authCthx.token}`
+                 Authorization: `Bearer ${authCtx.token}`
               }
             })
             if(res){
               const data = await res.data
               setPostData(data)
+              navigate('/product')
             }
          }catch(e){
           console.log(e)
@@ -35,7 +40,7 @@ const PostProduct = () => {
     category:'',description:'',prix:''})
   }
 console.log(postData)
-  const selection =['vetement','chaussure','accessoire']
+  const selection =['Vetement','Chaussure','Accessoire']
 
   return (
     <>

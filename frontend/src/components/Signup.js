@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import Axios from 'axios'
 import Alert from "./Alert";
+import AuthContext from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate =useNavigate()
+  const authCtx = useContext(AuthContext)
   const [erreur,setErreur] = useState('')
   //etat de stock de donnee de signup
   const [dataSignup, setDataSignup] = useState({
@@ -20,12 +24,19 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     //envoie vers server
+    e.preventDefault()
     const postSignup = async()=>{
       try{
-           const res = await Axios.post('http://localhost:3002/authentification/signup',dataSignup)
+           const res = await Axios.post('http://localhost:3002/authentification/signup',dataSignup,{
+            headers:{
+              'Content-Type':'application/json',
+              Authorization: `Bearer ${authCtx.token}`
+            }
+           })
            if(res){
             const data = await res.data
             setDataSignup(data)
+            navigate('/')
            }
           
       }catch(e){

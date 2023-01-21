@@ -1,6 +1,6 @@
 //importation du module jwt 
 const jwt = require('jsonwebtoken')
-const dotenv = require(dotenv)
+const dotenv = require('dotenv')
 dotenv.config()
 //configuration
 module.exports =(req,res,next)=>{

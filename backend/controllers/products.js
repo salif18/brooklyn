@@ -13,7 +13,7 @@ exports.createProducts = (req,res,next)=>{
     })
     products.save()
     .then(()=>res.status(201).json({msg:'new product'}))
-    .catcth((err)=>res.status(400).json({err}))
+    .catch((err)=>res.status(400).json({err}))
 }
 
 exports.readProducts = (req,res,next)=>{

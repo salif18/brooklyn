@@ -1,38 +1,65 @@
 import Axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import {NavLink} from 'react-router-dom'
+import React, {useEffect, useState } from "react";
+import {NavLink, useNavigate} from 'react-router-dom'
 import { ClipLoader } from "react-spinners";
-import AuthContext from '../context/authContext'
 import Alert from "./Alert";
+import AuthContext from '../context/authContext';
+import { useContext } from "react";
 
 
 const Login = () => {
  const [erreur,setErreur]=useState('')
- const authCtx = useContext(AuthContext)
-
+ const [profile,setProfile]=useState('')
+ const navigate =useNavigate()
+const authCtx = useContext(AuthContext)
+console.log(authCtx)
+const isloggIn = authCtx.isLogged
   //Etat de stock des donnees form pour login
   const [dataLogin,setDataLogin]=useState({numero:'',password:''})
+
   const handleChange =(e)=>{
     const {name,value}=e.target
     setDataLogin({...dataLogin,[name]:value})
   }
-   const handleSubmit=(e)=>{
-    //envoie vers server
-    const postLogin =async()=>{
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    const senDataLogin = async()=>{
       try{
-         const res = await Axios.post('http://localhost:3002/authentification/login',{...dataLogin})
+         const res = await Axios.post('http://localhost:3002/authentification/login',{...dataLogin},{
+          headers:{
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authCtx.token}`
+          }
+         })
          if(res){
           const data = await res.data
-          authCtx.login(data.token ,data.userId )
-         }
+          setErreur(data['msg'])
+          authCtx.login(data.token, data.userId)
+          navigate('/')
+         } 
       }catch(e){
-        setErreur(e)
+        console.log(e)
       }
     }
-    postLogin()
+    senDataLogin()
     setDataLogin({numero:'',password:''})
-   } 
+  }
    
+   const get = async()=>{ 
+    const res = await Axios.get(`http://localhost:3002/authentification`)
+     if(res){
+      const data = await res.data
+      authCtx.login(data.prenom,data.nom , data.address, data.numero)
+      
+     }
+  }
+   
+    useEffect(()=>{
+      if(isloggIn){get()}
+    },[])
+   
+  
+  
    //etat de spinner
    const [loading,setLoading]=useState(false)
    useEffect(()=>{
@@ -40,11 +67,11 @@ const Login = () => {
       setTimeout(()=>setLoading(false),1000)
    },[])
 
-   console.log(authCtx.token)
+ 
   return (
     <>
     
-    {!erreur &&
+    {erreur &&
       <Alert>
         <div className='entete'> 
           <h1>{erreur}</h1>
